@@ -1,0 +1,15 @@
+name: SimpleLobbyPlugin
+version: '1.0-beta'
+main: dev.ikrlegido.simpleLobbyPlugin.SimpleLobbyPlugin
+api-version: '1.18'
+prefix: [ SimpleLobbyPlugin ]
+load: STARTUP
+authors: [ Ikrlegido12 ]
+description: A plugin for tp to lobby
+website: https://neuforia.xyz/
+commands:
+  slp:
+    descrition: SimpleLobbyPlugin
+    aliases:
+      - lobby
+      - spawn

@@ -1,0 +1,8 @@
+locations:
+  lobby:
+    lobbyworld: "lobby" #Mundo
+    coordX: 0 #Coordenada X
+    coordY: 90 #Coordenada Y
+    coordZ: 0 #Coordenada Z
+    pitch: 0 #Rotacion X
+    yaw: 0 #Rotacion Y
