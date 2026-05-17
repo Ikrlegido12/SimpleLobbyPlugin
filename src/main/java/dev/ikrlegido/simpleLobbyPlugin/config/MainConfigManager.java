@@ -15,6 +15,7 @@ public class MainConfigManager {
     private int coordZ;
     private int pitch;
     private int yaw;
+    private boolean ifDeathInThisWroldTeleportToLobby;
     private String protectedworld;
     private String message;
     private String item;
@@ -41,6 +42,7 @@ public class MainConfigManager {
         item = config.getString("modalitymenu.item");
         hotbar = config.getInt("modalitymenu.hotbar");
         prefix = config.getString("messages.prefix");
+        ifDeathInThisWroldTeleportToLobby = config.getBoolean("location.lobby.ifDeathInThisWroldTeleportToLobby");
     }
 
     public void reloadConfig(){
@@ -70,6 +72,9 @@ public class MainConfigManager {
     }
     public int getYaw() {
         return yaw;
+    }
+    public boolean isIfDeathInThisWroldTeleportToLobby() {
+        return ifDeathInThisWroldTeleportToLobby;
     }
 
     public String getProtectedworld() {

@@ -6,3 +6,4 @@ locations:
     coordZ: 0 #Coordenada Z
     pitch: 0 #Rotacion X
     yaw: 0 #Rotacion Y
+    ifDeathInThisWorldTpToLobby: true #Si el jugador muere en este mundo, se le teletransporta al lobby

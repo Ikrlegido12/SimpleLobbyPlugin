@@ -1,12 +1,12 @@
 package dev.ikrlegido.simpleLobbyPlugin.listeners;
 
-import com.destroystokyo.paper.event.player.PlayerLaunchProjectileEvent;
 import dev.ikrlegido.simpleLobbyPlugin.SimpleLobbyPlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 public class PlayerListener implements Listener {
@@ -22,4 +22,20 @@ public class PlayerListener implements Listener {
             event.getPlayer().teleport(location);
         }
     }
+
+    @EventHandler
+    public void LobbyDeath(PlayerDeathEvent event){
+        if (plugin.getMainConfigManager().isIfDeathInThisWroldTeleportToLobby()) {
+            Location location = new Location(Bukkit.getWorld(plugin.getMainConfigManager().getLobbyworld()), plugin.getMainConfigManager().getCoordX(), plugin.getMainConfigManager().getCoordY() + 0.5, plugin.getMainConfigManager().getCoordZ(), plugin.getMainConfigManager().getYaw(), plugin.getMainConfigManager().getPitch());
+            Location deathLoc = event.getEntity().getLocation();
+            if (deathLoc.getWorld().toString().equals(plugin.getMainConfigManager().getLobbyworld())) {
+                Player player = event.getEntity();
+                if (player.isDead()) {
+                    player.spigot().respawn();
+                }
+                player.teleport(location);
+            }
+        }
+    }
+
 }
